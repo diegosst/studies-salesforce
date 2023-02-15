@@ -1,0 +1,15 @@
+public class EmailManager
+{
+    public void sendMail(string address, string subject, string body)
+    {
+        List<Messaging.SingleEmailMessage> singleEmailMessagesList=new List<Messaging.SingleEmailMessage>();
+        Messaging.SingleEmailMessage email = new Messaging.SingleEmailMessage();
+        List<string> toaddress = new List<string>{address};
+        email.setToAddresses(toaddress);
+        email.setSubject(subject);
+        email.setPlainTextBody(body);
+        singleEmailMessagesList.add(email);
+        
+        Messaging.sendEmail(singleEmailMessagesList);
+    }
+}
